@@ -38,6 +38,8 @@ public class Krapeckar {
         
         
         Integer[] newNumero = new Integer[4];
+        /* Ha calgut retocar-ho perquè si no per nombres com 0024 no construïa un array de 4 enters */
+        
         for (int i = 0; i < 4; i++)
         {
            try
@@ -58,9 +60,9 @@ public class Krapeckar {
         Integer[] arrayNumero;
         final int KRAPEKAR = 6174; 
          
+        
         numeroInicial = teclado.nextInt();
-      
-       
+           
                 
         while (numeroInicial != KRAPEKAR && numeroInicial!=0)
         {
