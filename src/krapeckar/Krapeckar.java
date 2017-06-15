@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Problema número 100 de Acepta el Reto
  */
 package krapeckar;
 
@@ -55,6 +53,9 @@ public class Krapeckar {
     }
         
         public static void casoPrueba()
+                /* TODO pendent d'optimització, possiblement s'hagi de tractar tot com un array 
+                perquè en la resta sempre es cumpleix que el minuend es major o igual que el substraend
+                */
         {
             int numeroInicial, numeroAsc, numeroDesc, cont=0;
         Integer[] arrayNumero;
