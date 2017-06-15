@@ -23,20 +23,32 @@ public class Esoterico {
     private String[]lineaArray;
     private Integer[] intArray;
     
+    /* Exemples de Text 
+    
+    7
+22 47 16 41 10 35 4 5 23 48 17 42 11 29 30 6 24 49 18 36 12 13 31 7 25 43 19 37 38 14 32 1 26 44 20 21 39 8 33 2 27 45 46 15 40 9 34 3 28
+ESOTERICO
+
+8
+1 63 62 4 5 59 58 8 56 10 11 53 52 14 15 49 48 18 19 45 44 22 23 41 25 39 38 28 29 35 34 32 33 31 30 36 37 27 26 40 24 42 43 21 20 46 47 17 16 50 51 13 12 54 55 9 57 7 6 60 61 3 2 64
+ESOTERICO
+
+    */
     
     
     
     
     public static void main (String[] args)
     {
-        int lados;
+        String ladosString;
         scanner = new Scanner(System.in);
+        int lados;
         do
         {
             
-        lados = scanner.nextInt();
-        scanner.nextLine();
-        if (lados != 0) casoPrueba(lados);
+        ladosString = scanner.nextLine();
+        lados = Integer.valueOf(ladosString);
+        if (lados!= 0) casoPrueba(lados);
         }        
         while(lados!=0);
         
@@ -52,6 +64,14 @@ public class Esoterico {
         Esoterico esoterico = new Esoterico();
         esoterico.lados = lados;
         linea = scanner.nextLine();
+        if (lados==1) 
+        {
+            esoterico.resultado = "DIABOLICO";
+        }
+        
+        else
+        {
+             
                 
         esoterico.crearCuadrado(linea);
         esoterico.calcularCM();
@@ -62,6 +82,7 @@ public class Esoterico {
         else
             esoterico.resultado = "NO"; 
                     
+        }
         
         System.out.println (esoterico.resultado);
     }
