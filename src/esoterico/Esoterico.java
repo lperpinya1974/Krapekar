@@ -71,7 +71,7 @@ ESOTERICO
         
         else
         {
-             
+            
                 
         esoterico.crearCuadrado(linea);
         esoterico.calcularCM();
