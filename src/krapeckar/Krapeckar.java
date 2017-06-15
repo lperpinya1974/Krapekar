@@ -60,7 +60,7 @@ public class Krapeckar {
             int numeroInicial, numeroAsc, numeroDesc, cont=0;
         Integer[] arrayNumero;
         final int KRAPEKAR = 6174; 
-         
+        
         
         numeroInicial = teclado.nextInt();
            
