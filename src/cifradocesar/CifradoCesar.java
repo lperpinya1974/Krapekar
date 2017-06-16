@@ -5,6 +5,8 @@
  */
 package cifradocesar;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -12,6 +14,8 @@ import java.util.Scanner;
  * @author Lluis_2
  */
 public class CifradoCesar {
+    
+    
    
      
     public static void main (String[] args)
@@ -19,7 +23,7 @@ public class CifradoCesar {
         boolean cifrado = true;
         String line;
         String lineDecode;
-       
+        int[] numVocals = {0};
         
         
         Scanner scanner = new Scanner(System.in);
@@ -27,31 +31,57 @@ public class CifradoCesar {
         
         while (cifrado)
         {
-            cifrado = false;
+           numVocals[0]=0;  
            line = scanner.nextLine();
            firstDigit= line.codePointAt(0);
            offset = 112 - firstDigit;
-           lineDecode = decode (line, offset);
+           lineDecode = decode (line, offset, numVocals);
            System.out.println(lineDecode);
-           if (lineDecode.equals("FIN"))  cifrado = true;
+           System.out.println(numVocals[0]);
+           if (lineDecode.equals("FIN"))  cifrado = false;
            
         }
         
     }
                
-        public static String decode (String line, int offset)
+        public static String decode (String line, int offset, int[] numVocals)
         {
+            List <Character> vocales = Arrays.asList('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U');
+            List <Character> completo = Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
+            , 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+            
             String result="";
-            char character;
+            char character, newCharacter;
             for (int contador = 1; contador<line.length(); contador++)
             {
                 character = line.charAt(contador);
-                character += offset;
+                if (completo.contains(character)|| completo.contains((char) character+32)) {
+                  
+                    if ((offset>0) && ((character+offset>122) || (character+offset>90 && character<90))) character = (char) (character + offset -26);
+                    else
+                        if ((offset<0) && ((character+offset<65) || (character+offset<97 && character>97)))  character = (char) (character + offset -26);
+                    
+                        else
+                                 character += offset;
+                               
+                
+                
+                
+                
+                
+                {
                 result +=character;
+                if (vocales.contains(character)) numVocals[0]++; }
+                }
             }
+            
             return result;
         }
         
+        public boolean isOutOfLimits (char character)
+        {
+            return (character<65|| (character >90 && character <97) || character>122);
+        }
     }
     
 
