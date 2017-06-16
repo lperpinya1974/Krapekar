@@ -36,7 +36,7 @@ public class CifradoCesar {
            firstDigit= line.codePointAt(0);
            offset = 112 - firstDigit;
            lineDecode = decode (line, offset, numVocals);
-           System.out.println(lineDecode);
+        //   System.out.println(lineDecode);
            System.out.println(numVocals[0]);
            if (lineDecode.equals("FIN"))  cifrado = false;
            
@@ -51,15 +51,16 @@ public class CifradoCesar {
             , 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
             
             String result="";
-            char character, newCharacter;
+            char character, caseCharacter;
             for (int contador = 1; contador<line.length(); contador++)
             {
                 character = line.charAt(contador);
-                if (completo.contains(character)|| completo.contains((char) character+32)) {
+                caseCharacter = (char) (character +32);
+                if (completo.contains(character)|| completo.contains(caseCharacter)) {
                   
-                    if ((offset>0) && ((character+offset>122) || (character+offset>90 && character<90))) character = (char) (character + offset -26);
+                    if ((offset>0) && ((character+offset>122) || (character+offset>90 && character<=90))) character = (char) (character + offset -26);
                     else
-                        if ((offset<0) && ((character+offset<65) || (character+offset<97 && character>97)))  character = (char) (character + offset -26);
+                        if ((offset<0) && ((character+offset<65) || (character+offset<97 && character>=97)))  character = (char) (character + offset -26);
                     
                         else
                                  character += offset;
@@ -68,12 +69,12 @@ public class CifradoCesar {
                 
                 
                 
-                
-                {
-                result +=character;
-                if (vocales.contains(character)) numVocals[0]++; }
                 }
-            }
+                
+                result +=character;
+                if (vocales.contains(character)) numVocals[0]++; 
+                }
+            
             
             return result;
         }
