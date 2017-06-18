@@ -79,10 +79,7 @@ public class CifradoCesar {
             return result;
         }
         
-        public boolean isOutOfLimits (char character)
-        {
-            return (character<65|| (character >90 && character <97) || character>122);
-        }
+       
     }
     
 
