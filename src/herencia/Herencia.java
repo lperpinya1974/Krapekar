@@ -20,15 +20,12 @@ public class Herencia {
     
     public static void main (String[] args)
     {
+        teclado = new Scanner(System.in);
        while (entradaDatos())
        {
-           System.out.println ("Grado: " + grado);
-           System.out.println ("Número Rectángulos: " + numeroRectangulos);
+           
           
-     for (int cont=grado; cont >=0; cont--)
-     {
-         System.out.println (polinomio[cont]+" ");
-     }
+   
      procesarCaso();
        }   
        
@@ -36,7 +33,7 @@ public class Herencia {
     }
 
     private static boolean entradaDatos() {
-     teclado = new Scanner(System.in);
+     
      grado = teclado.nextInt();
      if (grado>=20) return false;
      
@@ -46,7 +43,7 @@ public class Herencia {
          polinomio[cont] = teclado.nextDouble();
      }
      
-     numeroRectangulos = teclado.nextDouble();
+     numeroRectangulos = teclado.nextInt();
      return true;
      
     }
@@ -77,7 +74,7 @@ public class Herencia {
                  
         
        System.out.println (mensajes[mensaje]);
-       System.out.println ("Area CAin" + areaCain + "Area Abel" +areaAbel);
+     //  System.out.println ("Area CAin" + areaCain + "Area Abel" +areaAbel);
     }
 
     private static double evaluarPolinomio(double base) {
