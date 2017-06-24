@@ -16,6 +16,9 @@ public class CodigoBarras {
      
     private static String entrada;
     private static Scanner teclado;
+    private static String[] countries = {"EEUU", "Bulgaria", "Inglaterra", "Irlanda", "Portugal", "Noruega", "Venezuela", "Cuba", "India"};
+    private static String[] countryCodes = {"0", "380", "50", "539", "560", "70", "759", "850", "890"};
+    
     
     
     public static void main (String[] args)
@@ -43,12 +46,19 @@ public class CodigoBarras {
 
     private static void procesarCaso() {
         
-        if (entrada.length()<=8)  
-            if (validarEan())
-                System.out.println ("SI");
-            else
-                System.out.println ("NO");
+           
+        String exit="";
+        String country;
         
+                        
+            if (validarEan())
+               exit = "SI";
+            else
+               exit = "NO";
+        if ((entrada.length()>8) && exit.equals("SI"))
+                                
+        {  exit += " " + getCountry();}
+            System.out.println (exit);
     }
 
     private static boolean validarEan() {
@@ -68,5 +78,18 @@ public class CodigoBarras {
      
      return (digitControl == numberControl);
     }
-    
+    private static String getCountry ()
+    {
+        for (int contador = 0; contador<countryCodes.length; contador++)
+        {
+        {
+            if (countryCodes[contador].equals(entrada.substring (0,countryCodes[contador].length())))
+                return  countries[contador];
+        }
+        }
+        return "Desconocido";
+       
+       
+    }
+
 }
