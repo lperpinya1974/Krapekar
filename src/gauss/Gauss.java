@@ -13,8 +13,8 @@ import java.util.Scanner;
  */
 public class Gauss {
     
-    private static int testNumber;
-    private static int error;
+    public static int testNumber;
+    public static int error;
     private static Scanner keyboard;
     
     public static void main (String[] args)
