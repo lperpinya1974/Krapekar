@@ -13,10 +13,10 @@ import java.util.Scanner;
  */
 public class Gauss {
     
-    private static int testNumber;
-    private static int error;
-    private static Scanner keyboard;
-    private static boolean aristotenes[];
+    public static int testNumber;
+    public static int error;
+    public static Scanner keyboard;
+    public static boolean aristotenes[];
     /* els nombres primers seran els que tinguin false, llevat del 0 i del 1 */
     
     
@@ -29,7 +29,7 @@ public class Gauss {
         }
     }
 
-    private static boolean readData() {
+    public static boolean readData() {
         
         testNumber = keyboard.nextInt();
         error = keyboard.nextInt();
@@ -39,7 +39,7 @@ public class Gauss {
             return true;
     }
 
-    private static String testCase() {
+    public static String testCase() {
         
         int numberOfPrimes = 0;
         double calculatedError, estimatedError;
@@ -58,7 +58,7 @@ public class Gauss {
         
     }
     
-    private static int calculateNumberOfPrimes()
+    public static int calculateNumberOfPrimes()
     {
         int numberOfPrimes = 0;
         for (int number=2; number<testNumber;number++)
@@ -76,7 +76,7 @@ public class Gauss {
         }
         return numberOfPrimes;
     }
-    private static boolean isPrime(int number)
+    public static boolean isPrime(int number)
     {
         for (int cont=2; cont<=Math.sqrt(number); cont++)
         {
@@ -86,11 +86,11 @@ public class Gauss {
         return true;
     }
     
-    private static double calculateGaussAprox()
+    public static double calculateGaussAprox()
     {
         return 1/Math.log(testNumber);
     }
-    private static void filterAristotenes ()
+    public static void filterAristotenes ()
     {
         for (int cont=2; cont<=Math.sqrt(testNumber); cont++)
             if (!aristotenes[cont])
