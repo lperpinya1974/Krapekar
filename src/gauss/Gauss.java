@@ -1,4 +1,4 @@
-/*
+   /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -92,7 +92,8 @@ public class Gauss {
     }
     public static void filterAristotenes ()
     {
-        for (int cont=2; cont<=Math.sqrt(testNumber); cont++)
+        double max = Math.sqrt(testNumber);
+        for (int cont=2; cont<=max; cont++)
             if (!aristotenes[cont])
             {
                 for (int test=cont*2; test <=testNumber; test+=cont)
@@ -106,4 +107,3 @@ public class Gauss {
     }
     
     
-

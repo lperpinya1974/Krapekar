@@ -25,6 +25,7 @@ public class TestVentas {
         {
             procesarCaso();
         }
+        System.out.println("");
     }
 
     private static double CalculaMediaSemanal() {
